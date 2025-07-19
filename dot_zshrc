@@ -1,0 +1,73 @@
+# Exports for Autosuggestions:
+#export ZSH_AUTOSUGGEST_STRATEGY=(completion history)
+
+# Autocompletion Spacing:
+zstyle ':autocomplete:*' add-space \
+	"*"
+
+# History Search Mode:
+#zstyle ':autocomplete:*' default-context history-incremental-search-backward
+
+# Autocompletions:
+source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+# Autocomplete Configuration:
+bindkey              '^I'         menu-select
+bindkey "$terminfo[kcbt]" menu-select
+bindkey -M menuselect              '^I'         menu-complete
+bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
+#bindkey -M menuselect  '^[[D' .backward-char  '^[OD' .backward-char
+#bindkey -M menuselect  '^[[C'  .forward-char  '^[OC'  .forward-char
+#bindkey -M menuselect '^M' .accept-line
+#bindkey -M menuselect '\r' .accept-line
+
+# Additional Autocomplete Definitions:
+fpath=(usr/share/zsh/site-functions/ $fpath)
+
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _expand _complete _ignored _match _correct _approximate _prefix
+zstyle ':completion:*' completions 1
+zstyle ':completion:*' condition 0
+zstyle ':completion:*' expand prefix suffix
+zstyle ':completion:*' file-sort modification
+zstyle ':completion:*' glob 1
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' insert-unambiguous true
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt '%SAt %p: Hit TAB for more, or the character to insert%s'
+zstyle ':completion:*' list-suffixes true
+zstyle ':completion:*' matcher-list '+' '+m:{[:lower:]}={[:upper:]} m:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+r:|[._-]=** r:|=**' '+l:|=* r:|=*'
+zstyle ':completion:*' match-original both
+zstyle ':completion:*' max-errors 3 numeric
+zstyle ':completion:*' menu select=1
+zstyle ':completion:*' original false
+zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
+zstyle ':completion:*' special-dirs true
+zstyle ':completion:*' squeeze-slashes true
+zstyle ':completion:*' substitute 1
+zstyle ':completion:*' use-compctl true
+zstyle ':completion:*' word true
+zstyle :compinstall filename '/home/sudar/.zshrc'
+
+#autoload -Uz compinit
+#compinit
+
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
+setopt autocd extendedglob nomatch notify
+unsetopt beep
+bindkey -e
+# End of lines configured by zsh-newuser-install
+
+# Command Not Found:
+source /usr/share/doc/find-the-command/ftc.zsh
+
+# Syntax Highlighting:
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Autosuggestions:
+#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh;
